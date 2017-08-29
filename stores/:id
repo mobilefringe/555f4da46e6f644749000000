@@ -304,6 +304,8 @@ background-color: #FFFFFF ;
                             val.z_coordinate = "Level 5"
                             break;
                     }
+                    
+                    
                     if ((val.store_front_url).indexOf('missing.png') > -1){
                         val.alt_store_front_url = "//kodekloud.s3.amazonaws.com/sites/555f4da46e6f644749000000/e342104552ef237ef4908386ddb26bc2/default.jpg"
                     } else {
@@ -341,6 +343,12 @@ background-color: #FFFFFF ;
                             break;
                     }
                     if (val.open_time && val.close_time && (val.is_closed == false || val.is_closed == null)){
+                        // var open_time = new Date (val.open_time)
+                        // var close_time = new Date (val.close_time)
+                        // val.open_time = convert_hour(open_time);
+                        // val.close_time = convert_hour(close_time);    
+                        // val.h = val.day+": "+val.open_time+ " - " + val.close_time;
+                        
                         var open_time = moment(val.open_time).tz(getPropertyTimeZone());
                         var close_time = moment(val.close_time).tz(getPropertyTimeZone());
                         val.h = val.day + ": " + open_time.format("h:mm A") + " - " + close_time.format("h:mm A");
@@ -350,13 +358,24 @@ background-color: #FFFFFF ;
                     var rendered = Mustache.render(template_html,val);
                     item_rendered.push(rendered);
                 });
-            } else {
+            }else {
                 $.each( collection , function( key, val ) {
+                    // if (type == "store_details"){
+                    //     val.alt_store_front_url = getImageURL(val.store_front_url);    
+                    // }
+                    if (type == "promotions"){
+                        // start = new Date (val.start_date + "T05:00:00Z");
+                        // end = new Date (val.end_date + "T05:00:00Z");
+                        // // start.setDate(start.getDate()+1);
+                        // // end.setDate(end.getDate()+1);
+                        // val.dates = (get_month(start.getMonth()))+" "+(start.getDate())+" - "+get_month(end.getMonth())+" "+end.getDate();
+                        
                         var start = moment(val.start_date).tz(getPropertyTimeZone());
                         var end = moment(val.end_date).tz(getPropertyTimeZone());
                         if (start.format("DMY") == end.format("DMY")){
                         	val.dates = start.format("MMM D");
-                        } else {
+                        }
+                        else {
                         	val.dates = start.format("MMM D") + " - " + end.format("MMM D");
                         }
                         if (val.description.length > 110) {
@@ -368,7 +387,7 @@ background-color: #FFFFFF ;
                             var store_details = getStoreDetailsBySlug(slug);
                             val.alt_promo_image_url = getImageURL(store_details.store_front_url);
                         } else {
-                            val.alt_promo_image_url = getCloudinaryImageUrl(val.promo_image_url);
+                       val.alt_promo_image_url = getCloudinaryImageUrl(val.promo_image_url);
                         }
                         $("#promo_header").show();   
                         $("#mobile_promo_header").show();  
@@ -389,11 +408,44 @@ background-color: #FFFFFF ;
             $(container).html(item_rendered.join(''));
             if (type == "store_details"){
                 if (collection.website != "" && collection.website != undefined){
-                    $("#store_website_link").show();
+                        $("#store_website_link").show();
                 }
             }
             
         }
+        
+        
+        
+        function convert_hour(d){
+            var h = addZero(d.getUTCHours());
+            var m = addZero(d.getUTCMinutes());
+            var s = addZero(d.getUTCSeconds());
+            if (h >= 12) {
+                if ( h != 12) {
+                    h = h - 12;    
+                }
+                
+                i = "PM"
+            } else {
+                if (h == 0) { h = 12 }
+                i = "AM"
+            }
+            return h+":"+m+" "+i;
+        }
+        
+        
+        
+        function addZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        
+
+
+        
+        
     });
     
     var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) );
