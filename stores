@@ -35,20 +35,18 @@
                         {{/phone}}
                     </script>
                 </div>
-                
             </div>
             <div class="directory_div" id="store_category_list_container">
                 <script id="category_store_list_template" type="x-tmpl-mustache/text">
                     <div id="cat{{id}}" class="cat_list_div" style="display:none">
-                        <p class="directory_header_name directory_name_col">{{name}}</p><p class="directory_header_phone directory_phone_col">Phone</p>
+                        <p class="directory_header_name directory_name_col">{{name}}</p>
+                        <p class="directory_header_phone directory_phone_col">Phone</p>
                         <div class="store_list" id="cat{{id}}_list"></div>
                     </div>
                 </script>    
             </div>
         </div>
         <div class="right_column">
-            <!--<a href="/map" id="map_link"><p class="right_column_header">centre map</p></a>-->
-            <br>
             <p class="right_column_header">categories</p>
             <div id="categories_container">
                 <a href="#categories_container" onclick="(show_cat('view_all', 'all'))" id="view_all_link" class="cat_links directory_content" style="font-weight:bold">View All</a><br>
@@ -62,8 +60,6 @@
                     <p class="directory_content">{{city}}, {{province_state}} {{postal_code}}</p>
                 </script>
             </div>
-            
-            
         </div>
     </div>
 </div>
@@ -115,9 +111,9 @@
                 if (type == "stores" || type == "category_stores"){
                     if(!val.store_front_url ||  val.store_front_url.indexOf('missing.png') > -1 || val.store_front_url.length === 0){
                             val.alt_store_front_url = "//kodekloud.s3.amazonaws.com/sites/54cfab316e6f6433ad020000/77c900d783abeb362232339ece231335/10dundas_default.jpg"    
-                        } else {
-                            val.alt_store_front_url = getImageURL(val.store_front_url);    
-                        }
+                    } else {
+                        val.alt_store_front_url = getImageURL(val.store_front_url);    
+                    }
                     switch(val.z_coordinate) {
                         case 0: 
                             val.z_coordinate = "B2"
@@ -140,21 +136,17 @@
                         case 6:
                             val.z_coordinate = "Level 5"
                             break;
-                        }   
+                    }   
                 }
                 
                 var rendered = Mustache.render(template_html,val);
                 item_rendered.push(rendered);
-    
             });
-            
             $(container).show();
             $(container).html(item_rendered.join(''));
-        };
-    
+        }
 
         function render_category_stores(){
-            
             var category_stores = [];
             var item_rendered = [];
             var all_stores = getStoresList();
@@ -170,7 +162,6 @@
                         category_stores.push(all_stores[j]);
                         stores_per_cat.push(all_stores[j]);
                     }
-                
                 }
                 var rendered = Mustache.render(template_html,all_categories[i]);
                 item_rendered.push(rendered);
@@ -185,41 +176,35 @@
                         all_stores[j].alt_store_front_url = getImageURL(all_stores[j].store_front_url);    
                         populate_stores_for_cat(all_categories[i].id, all_stores[j]);
                     }
-                
                 }
             }
-            
-        };
+        }
     
         function populate_stores_for_cat (categoryid, store){
-            $('#cat'+categoryid+'_list').append('<span id="store_for_'+store.id+'"><a href="../stores/'+store.slug+'"><p class="directory_content directory_name_col">'+store.name+'</p></a><a href="tel:'+store.phone+'"><p class="directory_content directory_phone_col">  '+store.phone+'</p></a></span>');
-            
+            if(store.phone != null && store.phone != ""){
+                $('#cat' + categoryid + '_list').append('<span id="store_for_' + store.id + '"><a href="../stores/' + store.slug + '"><p class="directory_content directory_name_col">' + store.name + '</p></a><a href="tel:' + store.phone + '"><p class="directory_content directory_phone_col">  ' + store.phone + '</p></a></span>');
+            } else {
+                $('#cat' + categoryid + '_list').append('<span id="store_for_' + store.id + '"><a href="../stores/' + store.slug + '"><p class="directory_content directory_name_col">' + store.name + '</p></a></span>');    
+            }
         }
-        
-         
-    
-    function goToStore(store_details){
-        if(typeof(store_details) != 'undefined' && store_details != null){
-            window.location.href = "/stores/"+store_details.slug;
-        }
-    }
 
-    function getSVGMapURL(){
-        initData();
-        var mallDataJSON = JSON.parse(getStorage().mallData);
-        return 'https://mallmaverick.cdn.speedyrails.net' + mallDataJSON.property.svgmap_url;
-    }
-    
-    
+        function goToStore(store_details){
+            if(typeof(store_details) != 'undefined' && store_details != null){
+                window.location.href = "/stores/"+store_details.slug;
+            }
+        }
+
+        function getSVGMapURL(){
+            initData();
+            var mallDataJSON = JSON.parse(getStorage().mallData);
+            return 'https://mallmaverick.cdn.speedyrails.net' + mallDataJSON.property.svgmap_url;
+        }
+
         loadMallData(renderAll);  
-
-    
-  
     });
     
     function show_cat(link, type){
         $(".cat_links").css("font-weight","normal");
-        
         if (type == "all"){
             $("#mobile_view_all_link").css("font-weight","bold");
             $("#view_all_link").css("font-weight","bold");
@@ -232,7 +217,5 @@
             $(".cat_list_div").hide();
             $("#"+link.id).show();    
         }
-    
-        
     }
 </script>
