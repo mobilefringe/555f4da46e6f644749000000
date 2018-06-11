@@ -92,7 +92,7 @@
             });      
         });
         
-        setEndPoint('//brantford.mallmaverick.com/api/v4/brantford/all.json');
+        setEndPoint('//twinpine.mallmaverick.com/api/v4/twinpine/all.json');
     </script>
     <style>
         /*custom styles*/
