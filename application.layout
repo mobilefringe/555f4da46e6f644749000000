@@ -195,6 +195,9 @@
         .navbar .nav li a:hover {
             color:#999999 !important;
         }
+        footer a, footer a:hover {
+            color: #FFF;
+        }
         .copyright {
             background-color: rgba(0, 0, 0, 1);
             color: #FFF;
