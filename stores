@@ -63,6 +63,7 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.min.js"></script>
 <script>
     if(navigator.appVersion.indexOf("MSIE 9.") == -1){
         
@@ -72,6 +73,7 @@
     $(document).ready(function() {
         function renderAll (){
             var stores = getStoresList();
+            stores = _.filter(stores, function(o) { return o.name != "Bentall Kennedy Store" });
             var category_stores = getStoresListByCategory();
             var categories = getStoreCategories();
             var propertyDetails = getPropertyDetails();
@@ -84,19 +86,15 @@
             $("#loading_screen").hide();
             $("#main_content").show();
         }
-        
     
         function render_categories(categories){
-            
             $.each( categories , function( key, val ) {
                 val.link = "cat" + val.id;
                 $("#categories_container").append('<a href="#categories_container" class="cat_links directory_content" onclick=(show_cat('+val.link+')) id="cat'+val.id+'_link">'+val.name+'</a><br>');
                 $("#mobile_categories_container").append('<a href="#categories_container" class="cat_links directory_content" onclick=(show_cat('+val.link+')) id="mobile_cat'+val.id+'_link">'+val.name+'</a><br>');
-
-                
-                
             });
-        };
+        }
+        
         function renderPageData(container, template, collection, type){
             var item_list = [];
             var item_rendered = [];
