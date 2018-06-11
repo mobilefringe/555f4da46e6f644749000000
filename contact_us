@@ -24,19 +24,7 @@
                     </script>
                 </div>
                 <br>
-                
-                
-                    <!--<p class="directory_content"><strong>Rick Saker</strong> -->
-                    <!--<br>General Manager-->
-                    <!--<br>(905) 561-2444-->
-                    <!--<br><a href="mailto:rsaker@bentallkennedy.com">rsaker@bentallkennedy.com</a></p>-->
-                    <!--<br>-->
-                    <!--<p class="directory_content"><strong>Brian Anderson</strong> -->
-                    <!--<br>Director of Leasing*-->
-                    <!--<br>1.866.681.2715-->
-                    <!--<br><a href="mailto:banderson@bentallkennedy.com">banderson@bentallkennedy.com</a>-->
-                    <!-- <br>*Sales Representative</p>-->
-           
+                <div id="mm_page_desktop"></div>
             </div>
             <div id="send_contact_success" class="alert alert-success" role="alert" style="display:none">
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -100,16 +88,7 @@
                 </script>
             </div>
             <br>
-                    <!--<p class="directory_content"><strong>Rick Saker</strong> -->
-                    <!--<br>General Manager-->
-                    <!--<br>(905) 561-2444-->
-                    <!--<br><a href="mailto:rsaker@bentallkennedy.com">rsaker@bentallkennedy.com</a></p>-->
-                    <!--<br>-->
-                    <!--<p class="directory_content"><strong>Brian Anderson</strong> -->
-                    <!--<br>Director of Leasing*-->
-                    <!--<br>1.866.681.2715-->
-                    <!--<br><a href="mailto:banderson@bentallkennedy.com">banderson@bentallkennedy.com</a>-->
-                    <!-- <br>*Sales Representative</p>-->
+            <div id="mm_page_mobile"></div>
         </div>
     </div>
 </div>
@@ -124,7 +103,7 @@
 	}
 	
 	randomgen();
-      
+
     $('#contact_form').submit(function(e) {
 		if($('#enterVerify').val() == $('#verifyNumHidden').val() ) {
             values = [];
@@ -155,6 +134,7 @@
             var propertyDetails = getPropertyDetails();
             renderPageData('#centre_info_container','#centre_info_template',propertyDetails, 'property_details')
             renderPageData('#centre_info_container_mobile','#centre_info_template_mobile',propertyDetails, 'property_details')
+            renderpageHTML();
             $("#loading_screen").hide();
             $("#main_content").show();
         }
@@ -177,7 +157,22 @@
             $(container).show();
             $(container).html(item_rendered.join(''));
         }
-
+        
+        function renderpageHTML(){
+            var pathArray = window.location.pathname.split( '/' );
+            var slug = pathArray[pathArray.length-1];
+            prefix = get_prefix();
+            var pages_json = prefix+"/pages/" + slug + ".json"
+            $.getJSON(pages_json).done(function(data) {
+                $('#mm_page_desktop').html(data.body);
+                $('#mm_page_mobile').html(data.body);
+            }).fail(function(jqXHR) {
+                if (jqXHR.status == 404) {
+                    $("#404_msg").fadeIn("fast");
+                }
+            }); 
+        }
+    
         loadMallData(renderAll); 
     });
 </script>
