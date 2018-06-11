@@ -200,7 +200,7 @@
             color: #FFF;
         }
         .copyright a, .copyrighta:hover {
-            color: #FFF;
+            color: #FFF !important;
         }
         @media (max-width: 767px) {
             .main_window{
