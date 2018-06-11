@@ -202,6 +202,9 @@
         .copyright a, .copyrighta:hover {
             color: #FFF !important;
         }
+        .copyrighta:hover {
+            text-decoration: underline;
+        }
         @media (max-width: 767px) {
             .main_window{
                 width:100%;
