@@ -195,6 +195,9 @@
         .navbar .nav li a:hover {
             color:#999999 !important;
         }
+        .copyright {
+            background-color: rgba(0, 0, 0, 1);
+        }
         @media (max-width: 767px) {
             .main_window{
                 width:100%;
