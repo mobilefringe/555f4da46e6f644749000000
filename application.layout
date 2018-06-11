@@ -111,12 +111,12 @@
         }
         /*hyperlinks*/
         a {
-            color:#999999;
+            color: #585858;
             text-decoration:inherit;
         }
         /*hyperlink hover color*/
         a:hover{
-            color:#999999 !important;
+            color: #585858 !important;
         }
         body {
             background:white;
@@ -201,9 +201,6 @@
         }
         .copyright a, .copyrighta:hover {
             color: #FFF !important;
-        }
-        .copyrighta:hover {
-            text-decoration: underline;
         }
         @media (max-width: 767px) {
             .main_window{
