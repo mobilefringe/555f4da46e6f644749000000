@@ -78,7 +78,6 @@
                     $.each( val.images , function( key, val ) {
                         val.alt_url = getImageURL(val.photo_url);
                         item_list.push(val);
-                        
                     });
                 }
             });
@@ -86,12 +85,10 @@
                 var repo_rendered = Mustache.render(template_html,val);
                 item_rendered.push(repo_rendered);
             });
-            
             $(container).show();
             $(container).html(item_rendered.join(''));    
         }
         
-    
         function renderPageData(container, template, collection, type){
             var item_list = [];
             var item_rendered = [];
@@ -105,19 +102,14 @@
             $.each( collection , function( key, val ) {
                 var rendered = Mustache.render(template_html,val);
                 item_rendered.push(rendered);
-    
             });
-            
             $(container).show();
             $(container).html(item_rendered.join(''));
-        };
+        }
 
         loadMallData(renderAll);  
 
-        $.getScript("//cdn.jsdelivr.net/slimbox/2.0.5/js/slimbox2.js");
+        $.getScript("//bkindoortemplate.codecloudapp.com/slimbox_mod.js");
         $('head').append('<link rel="stylesheet" href="//cdn.jsdelivr.net/slimbox/2.0.5/css/slimbox2.css" type="text/css" media="screen" />');
-            
-  
     });
-    
 </script>
