@@ -197,6 +197,7 @@
         }
         .copyright {
             background-color: rgba(0, 0, 0, 1);
+            color: #FFF;
         }
         @media (max-width: 767px) {
             .main_window{
