@@ -28,7 +28,7 @@
                                 <a href="/stores/{{store_detail_btn}}">{{store_name}}</a><br>{{dates}}
                             </p>
                             <p id="desc">{{description}}</p>
-                            <a href="../promotions/{{slug}}" class="btn btn-primary pull-left">Read More</a>
+                            <a href="../promotions/{{slug}}" class="btn btn-primary pull-left">View Promotion Details</a>
                         </div>
                     </div>
                 </script>
@@ -46,8 +46,6 @@
                     <p class="directory_content">{{city}}, {{province_state}} {{postal_code}}</p>
                 </script>
             </div>
-            
-            
         </div>
     </div>
 </div>
@@ -60,9 +58,6 @@
             all_promos = all_promos.reverse();
             promo_array = []
             $.each( all_promos , function( key, val ){
-                // today = new Date();
-                // webDate = new Date(val.show_on_web_date)
-                
                 today = moment();
                 webDate = moment(val.show_on_web_date);
                 if (today >= webDate) {
@@ -77,7 +72,7 @@
             } 
             $("#loading_screen").hide();
             $("#main_content").show();
-            $.getScript("//cdn.jsdelivr.net/slimbox/2.0.5/js/slimbox2.js");
+            $.getScript("//bkindoortemplate.codecloudapp.com/slimbox_mod.js");
             $('head').append('<link rel="stylesheet" href="//cdn.jsdelivr.net/slimbox/2.0.5/css/slimbox2.css" type="text/css" media="screen" />');
         }
         
@@ -116,18 +111,12 @@
                     if (val.description.length > 110) {
                        val.description =  val.description.substring(0,100)+'...';
                     } 
-                    // start = new Date (val.start_date + "T05:00:00Z");
-                    // end = new Date (val.end_date + "T05:00:00Z");
-                    // // start.setDate(start.getDate()+1);
-                    // // end.setDate(end.getDate()+1);
-                    // val.dates = (get_month(start.getMonth()))+" "+(start.getDate())+" - "+get_month(end.getMonth())+" "+end.getDate();
-                    
+
                     var start = moment(val.start_date).tz(getPropertyTimeZone());
                     var end = moment(val.end_date).tz(getPropertyTimeZone());
                     if (start.format("DMY") == end.format("DMY")){
                     	val.dates = start.format("MMM D");
-                    }
-                    else {
+                    } else {
                     	val.dates = start.format("MMM D") + " - " + end.format("MMM D");
                     }
                 }
@@ -136,55 +125,8 @@
             });
             $(container).show();
             $(container).html(item_rendered.join(''));
-        };
-        
-        function get_month (id){
-            switch(id) {
-                case 0:
-                    month = "Jan"
-                    break;
-                case 1:
-                    month = "Feb"
-                    break;
-                case 2:
-                    month = "Mar"
-                    break;
-                case 3:
-                    month = "Apr"
-                    break;
-                case 4:
-                    month = "May"
-                    break;
-                case 5:
-                    month = "June"
-                    break;
-                case 6:
-                    month = "July"
-                    break;
-                case 7:
-                    month = "Aug"
-                    break;
-                case 8:
-                    month = "Sep"
-                    break;
-                case 9:
-                    month = "Oct"
-                    break;
-                case 10:
-                    month = "Nov"
-                    break;
-                case 11:
-                    month = "Dec"
-                    break;
-                    
-            }
-            return month;
         }
-  
-        loadMallData(renderAll);  
 
-    
-  
+        loadMallData(renderAll);
     });
-    
 </script>
