@@ -196,7 +196,7 @@
             color:#999999 !important;
         }
         footer a, footer a:hover {
-            color: #FFF;
+            color: #FFF !important;
         }
         .copyright {
             background-color: rgba(0, 0, 0, 1);
