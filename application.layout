@@ -206,24 +206,35 @@
         .copyright a, .copyrighta:hover {
             color: #FFF !important;
         }
+        
+        .footer_div {
+            display: flex;
+        }
+        .ribbon_container {
+            width: 60px;
+        }
+        .logo_container {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .bk_logo_svg {
+            position: initial;
+            margin-left: 20px;
+        }
+        
+        
         @media (max-width: 767px) {
             .main_window{
                 width:100%;
                 border:15px solid #eaf1fb !important;
                 border-top:none !important;
             }  
-            .bk_logo_svg {
-            width: 194px;
-            height: 70px;
-            display: block;
-            position: absolute;
-            right: unset;
-            left: 0;
-            bottom: -30px;
-            background-image: url(https://www.mallmaverick.com/system/site_images/photos/000/055/172/original/BK_Logo_Oaks.svg?1561652010);
-            background-size: 194px 95px;
-            background-repeat: no-repeat;
-        }
+            .logo_container {
+                left: 0;
+                bottom: -55px;
+            }
         }
     </style>
 </head>
