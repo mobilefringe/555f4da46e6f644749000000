@@ -268,13 +268,21 @@
             <div class="container">
                 <div class="navbar navbar-default" role="navigation">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/home" id="site_logo">
-                            <script id="logo_template" type="x-tmpl-mustache/text">
-                            {% raw %}
-                                <img src="{{site_logo}}" alt="Brantford Commons Logo">
-                            {% endraw %}
-                            </script>
-                        </a>
+                    
+                        <div class="header-logos">
+            			     <a class="navbar-brand" href="/home" id="site_logo">
+                                <script id="logo_template" type="x-tmpl-mustache/text">
+                                {% raw %}
+                                    <img src="{{site_logo}}" alt="Brantford Commons Logo">
+                                {% endraw %}
+                                </script>
+                            </a>
+            				<div class="header-ribbon">
+            				    <img src="//codecloud.cdn.speedyrails.net/sites/5afdb6876e6f6410c7c90000/image/png/1576000331000/Commercial-2019-Web-Page-Emblem-1.png" alt="2019 Kingsley Excellence Tenant Satisfaction Emblem">
+            				</div>
+        			    </div>
+                    
+                       
                         <a href="#" class="btn btn-navbar btn-default navbar-toggle" onclick="javascript:toggle_menu()">
                             <span class="nb_left pull-left"><span class="fa fa-reorder"></span></span>
                             <p style="display:none">menu</p> 
