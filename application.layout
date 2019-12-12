@@ -96,6 +96,20 @@
     </script>
     <style>
         /*custom styles*/
+        
+        .header-logos {
+            display: flex;
+        }
+        
+        .header-ribbon {
+            max-width: 57px;
+            position: relative;
+            bottom: 15px;
+        }
+        .ribbon_container {
+            display: none;
+        }
+        
         .bk_logo_svg {
         width: 194px;
         height: 70px;
@@ -234,6 +248,15 @@
             .logo_container {
                 left: 0;
                 bottom: -55px;
+            }
+            .header-logos {
+                display: initial;
+            }
+            .header-ribbon {
+                display: none !important;
+            }
+            .ribbon_container {
+                display: block;
             }
         }
     </style>
