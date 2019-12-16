@@ -103,8 +103,11 @@
         
         .header-ribbon {
             max-width: 57px;
-            position: relative;
+            position: absolute;
             bottom: 15px;
+        }
+        .header-ribbon img {
+            -ms-interpolation-mode: bicubic;
         }
         .ribbon_container {
             display: none;
