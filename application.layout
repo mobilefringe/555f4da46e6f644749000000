@@ -102,10 +102,10 @@
         }
         
         .header-ribbon {
-            width: 200px;
+            width: 230px;
             position: absolute;
-            top: -68px;
-            left: 226px;
+            top: -28px;
+            left: 210px;
             /*max-width: 57px;*/
             /*position: absolute;*/
             /*bottom: 15px;*/
@@ -290,7 +290,7 @@
 <!--</a>-->
 
 <a target="_blank" href="https://kingsleyassociates.com/kingsley-excellence" rel="noopener noreferrer">
-<img height="102px" width="200px" src="http://docs.kingsleyportal.com/Images/Awards/Commercial2019EmailSignatureEmblem.svg"/>
+<img height="102px" width="230px" src="http://docs.kingsleyportal.com/Images/Awards/Commercial2019EmailSignatureEmblem.svg"/>
 </a>
             				</div>
         			    </div>
