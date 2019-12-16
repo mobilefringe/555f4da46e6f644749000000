@@ -106,9 +106,6 @@
             position: absolute;
             top: -26px;
             left: 226px;
-            /*max-width: 57px;*/
-            /*position: absolute;*/
-            /*bottom: 15px;*/
         }
         .header-ribbon img {
             -ms-interpolation-mode: bicubic;
@@ -285,17 +282,12 @@
                                 </script>
                             </a>
             				<div class="header-ribbon">
-<!--            				    <a target="_blank" href="https://kingsleyassociates.com/kingsley-excellence" rel="noopener noreferrer" aria-label="Visit Kingley Associates website">-->
-<!--<img height="150px" width="97px" src="http://docs.kingsleyportal.com/Images/Awards/Commercial2019WebPageEmblem.svg" alt="2019 Kingsley Excellence Tenant Satisfaction Emblem"/>-->
-<!--</a>-->
 
-<a target="_blank" href="https://kingsleyassociates.com/kingsley-excellence" rel="noopener noreferrer">
-<img height="100px" width="100px" src="http://docs.kingsleyportal.com/Images/Awards/Commercial2019WhiteEmblem.svg"/>
-</a>
+                                <a target="_blank" href="https://kingsleyassociates.com/kingsley-excellence" rel="noopener noreferrer" aria-label="Visit Kingley Associates website">
+                                    <img height="100px" width="100px" src="http://docs.kingsleyportal.com/Images/Awards/Commercial2019WhiteEmblem.svg" alt="2019 Kingsley Excellence Tenant Satisfaction Emblem" />
+                                </a>
             				</div>
         			    </div>
-                    
-                       
                         <a href="#" class="btn btn-navbar btn-default navbar-toggle" onclick="javascript:toggle_menu()">
                             <span class="nb_left pull-left"><span class="fa fa-reorder"></span></span>
                             <p style="display:none">menu</p> 
