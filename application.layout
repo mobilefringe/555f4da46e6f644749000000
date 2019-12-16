@@ -104,7 +104,7 @@
         .header-ribbon {
             width: 97px;
             position: absolute;
-            top: -60px;
+            top: -68px;
             left: 226px;
             /*max-width: 57px;*/
             /*position: absolute;*/
