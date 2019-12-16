@@ -98,7 +98,7 @@
         /*custom styles*/
         
         .header-logos {
-            display: flex;
+            position: relative;
         }
         
         .header-ribbon {
