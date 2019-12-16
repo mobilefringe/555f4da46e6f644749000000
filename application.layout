@@ -285,9 +285,8 @@
                                 </script>
                             </a>
             				<div class="header-ribbon">
-            				    <!--<img src="//codecloud.cdn.speedyrails.net/sites/5b168f536e6f645538190000/image/png/1576513719590/Commercial-2019-Web-Page-Emblem-1.png" alt="2019 Kingsley Excellence Tenant Satisfaction Emblem">-->
-            				    <a target="_blank" href="https://kingsleyassociates.com/kingsley-excellence" rel="noopener noreferrer">
-<img height="150px" width="97px" src="http://docs.kingsleyportal.com/Images/Awards/Commercial2019WebPageEmblem.svg"/>
+            				    <a target="_blank" href="https://kingsleyassociates.com/kingsley-excellence" rel="noopener noreferrer" aria-label="Visit Kingley Associates website">
+<img height="150px" width="97px" src="http://docs.kingsleyportal.com/Images/Awards/Commercial2019WebPageEmblem.svg" alt="2019 Kingsley Excellence Tenant Satisfaction Emblem"/>
 </a>
             				</div>
         			    </div>
