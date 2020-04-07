@@ -13,7 +13,7 @@
     </div>
     <div class="inside_page_content">
         <div class="left_column">
-            <img class="inside_banner_image" alt="" src="//codecloud.cdn.speedyrails.net/sites/5b168f536e6f645538190000/image/jpeg/1580918751000/store directory page.jpg"/>
+            <img class="inside_banner_image" alt="" src=""/>
             <div class="mobile_cat_list" style="display:none">
                 <p class="right_column_header">categories</p>
                 <div id="mobile_categories_container">
@@ -85,6 +85,13 @@
             
             $("#loading_screen").hide();
             $("#main_content").show();
+            
+            // dynamic banner 
+            var bannerInfo = getRepoDetailsByName('Stores Banner')
+            var bannerImageUrl = bannerInfo.images[0].image_url
+            if (bannerImageUrl) {
+                $(".inside_banner_image").attr("src", bannerImageUrl);
+            }
         }
     
         function render_categories(categories){
